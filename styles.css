@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&family=Roboto+Mono:wght@500&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins';
+    box-sizing: border-box;
+}
+
+.container {
+    color: white;
+}
+
+.addForm {
+    background-color: #917C8B;
+    border-radius: 10px;
+    box-shadow:0px 2px 5px rgba(0, 0, 0, 0.3);
+    margin:10px;
+}
+
+form {
+    display: flex;
+    gap:5px;
+}
+
+.menu {
+    display: flex;
+    align-items: center;
+}
+
+.container div {
+    padding: 10px;
+    color: white;
+}
+
+.photo {
+    display: flex;
+    gap:15px;
+}
+
+a:link {
+    color:white;
+    text-decoration: none;
+    transition: all 0.4s;
+}
+
+a:visited, a:active {
+    color: white;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #f0b939;
+    text-decoration: none;
+}
+
+.header {
+    height: 100px;
+    margin: 10px;
+    background-color: #A1192C;
+    display: grid;
+    grid-template-columns: 5fr 2fr 1fr;
+    justify-content: space-between;
+    align-items: center; 
+    font-size: 24px;
+    border-radius: 10px;
+    box-shadow:0px 2px 5px rgba(0, 0, 0, 0.3);
+    grid-template-areas: 
+    "logo search m";
+}
+
+.logo {
+    grid-area:logo;
+}
+
+.menu {
+    grid-area:m;
+    gap:20px;
+}
+
+#divider {
+    width:1px;
+    padding: 0px;
+    height:50px;
+    background-color: rgb(219, 221, 231);
+}
+
+.content {
+    display: grid;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(auto-fit, 1fr);
+    gap: 30px;
+}
+
+.card {
+    background-color: #96C8C7;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow:0px 2px 5px rgba(0, 0, 0, 0.3);
+    transition: all 0.4s;
+    border: 2px solid transparent; 
+    min-height: 200px;
+}
+
+.menu ul {
+    display: grid;
+    list-style-type: none;
+    font-size: 16px;
+    gap:10px;
+    grid-template-columns: 1fr 2fr 2fr;
+}
+
+.card:hover {
+    border-color: #f0b939;
+    border-style: solid;
+}
+
+#h-divider {
+    background-color: rgb(219, 221, 231);
+    height: 1px; 
+    padding: 0px;
+    margin: 10px 0;
+    border:none;
+}
+.content-header {
+    color: #684948;
+    padding: 12px;
+}
+
+
+
+
