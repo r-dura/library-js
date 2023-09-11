@@ -5,12 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href = "styles.css">
+    <script src = "js.js" defer></script>
     <title>Library</title>
 </head>
 <body>
     <div class="container">
         <div class="header">
-          <div class="logo">Welcome to my Library!</div>
+          <div class="logo">welcome to my library!</div>
           <div class="menu">
             <div id ="divider"></div>
             <ul>
@@ -20,11 +21,11 @@
             </ul>
           </div>
         </div>
-        <div class = "addForm">
-            <form>
+        <div class = "formBar">
+            <form id = "bookForm">
                 <div class = "titleInput">
                     <label for="title">Book:</label>
-                    <input type="text" id="title" name="title">
+                    <input type="text" id="title" name="title"> <!-- name attribute serves as a reference to the data inputted into a form control after submitting it -->
                 </div>
                 <div class = "authorInput">
                     <label for="author">Author:</label>
@@ -36,19 +37,26 @@
                 </div>
                 <div class = "readInput">
                     <label for="read">Status:</label>
-                    <input type="button" id="read" name="read">
+                    <select id="read" name="read">
+                      <option value="yes">Finished</option>
+                      <option id = "in-progress">In Progress</option>
+                      <option value="no">Not Started</option>
+                    </select>
+                </div>
+                <div class="submitInput">
+                    <input type="submit" value="Submit">
                 </div>
             </form>
         </div>
         
         <div class = "content">
             <div class = "projects">
-                <p class = "content-header">your projects!</p>
-                <div class = "cards">
-                    <div class="card">
+                <p class = "content-header">your books!</p>
+                <div id = "cards">
+                    <!-- <div class="card">
                         <p class="title">Article Title</p>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud...</p>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
