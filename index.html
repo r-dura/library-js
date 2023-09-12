@@ -14,10 +14,10 @@
           <div class="logo">welcome to my library!</div>
           <div class="menu">
             <div id ="divider"></div>
-                <a href="">new book</a>
+                <button id = "formButton">new book</button>
             </div>
         </div>
-        <div class = "formBar">
+        <dialog id="formDialog">
             <form id = "bookForm">
                 <div class = "titleInput">
                     <label for="title">Book:</label>
@@ -38,8 +38,12 @@
                 <div class="submitInput">
                     <input type="submit" value="Submit">
                 </div>
+                <div class="close">
+                    <button type = "button" id = "closeButton">Close</button>
+                </div>
             </form>
-        </div>
+        </dialog>
+
         
         <div class = "content">
             <div class = "projects">

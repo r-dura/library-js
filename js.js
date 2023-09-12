@@ -76,3 +76,16 @@ document.getElementById('bookForm').addEventListener('submit', function(event) {
     addBookToLibrary(newBook);
 });
 
+const formDialog = document.getElementById("formDialog"); 
+
+document.getElementById('formButton').addEventListener('click', function(event) {
+    event.preventDefault();
+    formDialog.showModal();
+})
+
+const closeButton = document.getElementById("closeButton"); 
+
+closeButton.addEventListener('click', (event) => {
+    formDialog.close();
+});
+
