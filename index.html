@@ -21,15 +21,15 @@
             <form id = "bookForm">
                 <div class = "titleInput">
                     <label for="title">Book:</label>
-                    <input type="text" id="title" name="title"> <!-- name attribute serves as a reference to the data inputted into a form control after submitting it -->
+                    <input type="text" id="title" name="title" required = ""> <!-- name attribute serves as a reference to the data inputted into a form control after submitting it -->
                 </div>
                 <div class = "authorInput">
                     <label for="author">Author:</label>
-                    <input type="text" id="author" name="author">
+                    <input type="text" id="author" name="author" required = "">
                 </div>
                 <div class = "pagesInput">
                     <label for="pages">Number of Pages:</label>
-                    <input type="text" id="pages" name="pages">
+                    <input type="number" id="pages" name="pages" value=1>
                 </div>
                 <div class = "readInput">
                     <label for="read">Status:</label>
