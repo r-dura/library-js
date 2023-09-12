@@ -10,21 +10,15 @@ function Book(title, author, pages, status) {
 function addBookToLibrary(book) {
     const newCard = document.createElement("div");
     newCard.classList.add("card");
-    let status = "";
-    if (book.status) {
-        status = "Complete";
-    } else {
-        status = "Incomplete";
-    }
+    // const statusMessage = book.status ? "Complete" : "Incomplete";
+    const buttonMessage = book.status ? "Complete" : "Incomplete";
     newCard.innerHTML = `
         <h2>${book.title}</h2>
         <p>Author: ${book.author}</p>
         <p>Pages: ${book.pages}</p>
         <div id = "h-divider"></div>
         <button class = "delete-button">Delete</button>
-        <button class = "read-button">Read</button>
-        <div id = "h-divider"></div>
-        <p class = "status-message">${status}</p>
+        <button class = "read-button">${buttonMessage}</button>
     `;
     const cards = document.getElementById('cards');
     cards.appendChild(newCard);
@@ -46,7 +40,6 @@ document.querySelector('#cards').addEventListener('click', function(e) {
     const parentCard = e.target.parentNode;
     const bookTitle = parentCard.querySelector('h2').textContent;
     const bookIndex = findBook(bookTitle);
-    console.log(bookIndex);
     if (e.target.classList.contains('delete-button')) {
         myLibrary.splice(bookIndex, 1);
         cards.removeChild(parentCard);
@@ -55,10 +48,10 @@ document.querySelector('#cards').addEventListener('click', function(e) {
         book.status = !book.status;
         if (book.status) {
             parentCard.querySelector('.read-button').textContent = "Read";
-            parentCard.querySelector('.status-message').textContent = "Complete";
+            // parentCard.querySelector('.status-message').textContent = "Complete";
         } else {
             parentCard.querySelector('.read-button').textContent = "Not Read";
-            parentCard.querySelector('.status-message').textContent = "Incomplete";
+            // parentCard.querySelector('.status-message').textContent = "Incomplete";
         }
         
     }
@@ -70,9 +63,9 @@ document.getElementById('bookForm').addEventListener('submit', function(event) {
     const title = document.getElementById('title').value;
     const author = document.getElementById('author').value;
     const numPages = document.getElementById('pages').value;
-    const status = document.getElementById('read').value;
+    const statusCheckbox = document.getElementById('read');
 
-    const booleanValue = status === 'true';
+    const booleanValue = statusCheckbox.checked;
 
     const newBook = new Book(title, author, numPages, booleanValue);
   

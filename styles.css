@@ -1,9 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins&family=Roboto+Mono:wght@500&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Poppins&family=Raleway&family=Roboto+Mono:wght@500&display=swap');
 * {
     margin: 0;
     padding: 0;
-    font-family: 'Poppins';
+    font-family: 'Raleway';
     box-sizing: border-box;
 }
 
@@ -47,6 +46,7 @@ form {
     justify-content: space-evenly;
 }
 
+
 .menu {
     display: flex;
     align-items: center;
@@ -85,6 +85,7 @@ a:hover {
 }
 
 .card {
+    overflow-x: auto;
     background-color: #656F8F;
     text-align: center;
     border-radius: 10px;
@@ -93,6 +94,8 @@ a:hover {
     border: 2px solid transparent; 
     width: 300px;
     height:200px;
+    display: grid;
+    gap:5px;
 }
 
 .menu ul {
@@ -120,6 +123,11 @@ a:hover {
     padding: 12px;
 }
 
+input {
+    border-radius: 10px;
+    border: none;
+}
+
 input[type="submit"], select {
     border: none; 
     cursor: pointer;
@@ -128,6 +136,32 @@ input[type="submit"], select {
 .submitInput > input {
     padding: 5px;
     border-radius: 10px;
+}
+
+button {
+    padding:10px;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    transition: 0.3s;
+    cursor: pointer;
+    width:200px;
+    justify-self: center;
+}
+
+button:hover {opacity: 0.6}
+
+.delete-button {
+    background-color: indianred;
+}
+
+.read-button {
+    background-color: mediumseagreen;
+
+}
+
+.status-message {
+    transition: 0.3s;
 }
 
 
