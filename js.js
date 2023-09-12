@@ -1,37 +1,68 @@
 const myLibrary = [];
 
-function Book(title, author, pages, read, index) {
+function Book(title, author, pages, status) {
     this.title = title,
     this.author = author,
     this.pages = pages,
-    this.read = read,
-    this.index = index;
+    this.status = status
 }
 
 function addBookToLibrary(book) {
     const newCard = document.createElement("div");
     newCard.classList.add("card");
+    let status = "";
+    if (book.status) {
+        status = "Complete";
+    } else {
+        status = "Incomplete";
+    }
     newCard.innerHTML = `
         <h2>${book.title}</h2>
         <p>Author: ${book.author}</p>
         <p>Pages: ${book.pages}</p>
-        <p>Status: ${book.status}</p>
-        <div>
-            <button class = "delete-button">Delete</button>
-            <button class = "read-button">Finished</button>
-        </div>   
+        <div id = "h-divider"></div>
+        <button class = "delete-button">Delete</button>
+        <button class = "read-button">Read</button>
+        <div id = "h-divider"></div>
+        <p class = "status-message">${status}</p>
     `;
     const cards = document.getElementById('cards');
     cards.appendChild(newCard);
 }
 
-// function removeBook (book) {
+function findBook(name) {
+    if (myLibrary.length === 0 || myLibrary === null) {
+        return;
+    }
+    for (book of myLibrary) {
+        if (book.title === name) {
+            return myLibrary.indexOf(book);
+        }
+    }
+}
 
-// }
-
-// document.getElementsByClassName("delete-button").addEventListener('click', function(event) {
-
-// })
+document.querySelector('#cards').addEventListener('click', function(e) {
+    const cards = document.getElementById('cards');
+    const parentCard = e.target.parentNode;
+    const bookTitle = parentCard.querySelector('h2').textContent;
+    const bookIndex = findBook(bookTitle);
+    console.log(bookIndex);
+    if (e.target.classList.contains('delete-button')) {
+        myLibrary.splice(bookIndex, 1);
+        cards.removeChild(parentCard);
+    } else if (e.target.classList.contains('read-button')) {
+        let book = myLibrary[bookIndex];
+        book.status = !book.status;
+        if (book.status) {
+            parentCard.querySelector('.read-button').textContent = "Read";
+            parentCard.querySelector('.status-message').textContent = "Complete";
+        } else {
+            parentCard.querySelector('.read-button').textContent = "Not Read";
+            parentCard.querySelector('.status-message').textContent = "Incomplete";
+        }
+        
+    }
+})
 
 document.getElementById('bookForm').addEventListener('submit', function(event) {
     event.preventDefault(); // Prevent the default form submission behavior
@@ -41,7 +72,9 @@ document.getElementById('bookForm').addEventListener('submit', function(event) {
     const numPages = document.getElementById('pages').value;
     const status = document.getElementById('read').value;
 
-    const newBook = new Book(title, author, numPages, status, myLibrary.length-1);
+    const booleanValue = status === 'true';
+
+    const newBook = new Book(title, author, numPages, booleanValue);
   
     myLibrary.push(newBook);
 
