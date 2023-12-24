@@ -1,10 +1,68 @@
 const myLibrary = [];
 
-function Book(title, author, pages, status) {
-    this.title = title,
-    this.author = author,
-    this.pages = pages,
-    this.status = status
+// function Book(title, author, pages, status) {
+//     this.title = title,
+//     this.author = author,
+//     this.pages = pages,
+//     this.status = status
+// }
+
+class Book {
+
+    constructor(title, author, pages, status) {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.status = status;
+    }
+
+    get title() {
+        return this._title;
+    }
+
+    set title(value) {
+        if (value.length < 1) {
+          alert("Name is too short.");
+          return;
+        }
+        this._title = value;
+    }
+
+    get author() {
+        return this._author;
+    }
+
+    set author(value) {
+        if (value.length < 1) {
+          alert("Name is too short.");
+          return;
+        }
+        this._author = value;
+    }
+
+    get pages() {
+        return this._pages;
+    }
+
+    set pages(value) {
+        if (value < 1) {
+            alert("Page count must be positive.");
+            return;
+        }
+        this._pages = value;
+    }
+
+    get status() {
+        return this._status;
+    }
+
+    set status(value) {
+        if (value.length < 1) {
+          alert("Name is too short.");
+          return;
+        }
+        this._status = value;
+    }
 }
 
 function addBookToLibrary(book) {
